@@ -86,30 +86,30 @@ gulp.task('watch', function() {
 
 // autoprefixer
 
-exports.default = () => (
-    gulp.src('source/styles/style.scss')
-        .pipe(autoprefixer({
-            cascade: false
-        }))
-        .pipe(gulp.dest('build/css/style.min.css'))
-);
+// exports.default = () => (
+//     gulp.src('source/styles/style.scss')
+//         .pipe(autoprefixer({
+//             cascade: false
+//         }))
+//         .pipe(gulp.dest('build/css'))
+// );
 
 // sourcemaps
 
-gulp.task('scripts:compile', function() {
-  gulp.src('source/template/**/*.js')
-    .pipe(sourcemaps.init())
-      .pipe(plugin1())
-      .pipe(plugin2())
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest('build/scripts'));
-});
+// gulp.task('scripts:compile', function() {
+//   gulp.src('source/template/**/*.js')
+//     .pipe(sourcemaps.init())
+//       //.pipe(plugin1())
+//       //.pipe(plugin2())
+//     .pipe(sourcemaps.write())
+//     .pipe(gulp.dest('build/scripts'));
+// });
 
 // default
 
 gulp.task('default', gulp.series(
   'clean',
-  gulp.parallel('templates:compile', 'styles:compile', 'scripts:compile', 'sprite', 'copy'),
+  gulp.parallel('templates:compile', 'styles:compile', 'sprite', 'copy'),
   gulp.parallel('watch', 'browser-sync')
   )
 );
